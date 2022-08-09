@@ -1,0 +1,10 @@
+영상의 2진화 -> 관심영역 vs 비관심 영역으로 구분
+grayscale영상을 주로 2진화 -> grayscale을 하면 0~255까지의 밝기로만 나타내기 때문
+threshold값을 어떻게 주냐에 따라 나타나는 방식이 달라짐
+cv2.adaptive(src, maxValue, adaptiveMethod, thresholdType, blockSize, C, dst=None)
+- src: 입력영상(grayscale영상)
+- maxValue: 임계값 함수 최댓값. 보통255
+- adaptiveMethod: 블록평균 계산 방법 지정, cv2.ADAPTIVE_THRESH_GAUSSIAN_C는 가우시안 가중치 평균(가우시안 필터(블러)사용했을 때)
+- thresholdType: cv2.THRESH_BINARY 또는 cv2.THRESH_BINARY_INV 지정
+- blockSize: 블록크기. 3 이상의 홀수
+- C: 블록 내 평균값 또는 블록 내 가중평균값에서 뺄 값 (x, y)픽셀의 임계값으로 T(x,y)(threshold값) = u(x,y) - C을 사용
